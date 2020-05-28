@@ -8,14 +8,6 @@ export interface VirtualMachine {
     os: string;
 }
 
-// function getOsName(vmId: string): Promise<string> {
-//     return new Promise((resolve, reject) => {
-//         virtualbox.guestproperty.get({ vmname: vmId, key: "ostype" }, (value) => {
-//             resolve(value);
-//         });
-//     });
-// }
-
 export const isRunning = promisify(virtualbox.isRunning);
 export const saveState = promisify(virtualbox.savestate);
 export const powerOff = promisify(virtualbox.poweroff);
