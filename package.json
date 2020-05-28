@@ -1,11 +1,11 @@
 {
   "name": "virtualbox-extension",
   "displayName": "VirtualBox",
-  "description": "Extension allows to manage your VMs right from Visual Studio Code",
-  "publisher": "acherkashin",
+  "description": "Extension allows to manage your VMs right from Visual Studio Code fork from acherkashin",
+  "publisher": "dbinary",
   "icon": "images/virtualbox-extension-icon.png",
   "repository": {
-    "url": "https://github.com/acherkashin/virtualbox-vscode-extension"
+    "url": "https://github.com/dbinary/virtualbox-vscode-extension"
   },
   "version": "0.0.6",
   "engines": {
@@ -17,6 +17,7 @@
   "activationEvents": [
     "onView:vb-machines",
     "onCommand:virtualbox-extension.runVM",
+    "onCommand:virtualbox-extension.runHeadlessVM",
     "onCommand:virtualbox-extension.saveStateVM",
     "onCommand:virtualbox-extension.refreshVMs",
     "onCommand:virtualbox-extension.stopAllVms"
@@ -28,6 +29,12 @@
         "command": "virtualbox-extension.runVM",
         "category": "Virtual Box",
         "title": "Run Virtual Machine",
+        "icon": "$(run)"
+      },
+      {
+        "command": "virtualbox-extension.runHeadlessVM",
+        "category": "Virtual Box",
+        "title": "Run Virtual Machine Headless mode",
         "icon": "$(run)"
       },
       {
@@ -90,6 +97,11 @@
           "when": "viewItem == vmStopped && view == vb-machines"
         },
         {
+          "command": "virtualbox-extension.runHeadlessVM",
+          "group": "inline",
+          "when": "viewItem == vmStopped && view == vb-machines"
+        },
+        {
           "command": "virtualbox-extension.saveStateVM",
           "group": "inline",
           "when": "viewItem == vmRunning && view == vb-machines"
@@ -102,6 +114,10 @@
       "commandPalette": [
         {
           "command": "virtualbox-extension.runVM",
+          "when": "false"
+        },
+        {
+          "command": "virtualbox-extension.runHeadlessVM",
           "when": "false"
         },
         {
