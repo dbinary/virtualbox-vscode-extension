@@ -20,6 +20,18 @@ export const isRunning = promisify(virtualbox.isRunning);
 export const saveState = promisify(virtualbox.savestate);
 export const powerOff = promisify(virtualbox.poweroff);
 
+export function startWithoutGui(vmId: string): Promise<void> {
+    return new Promise((resolve, reject) => {
+        virtualbox.start(vmId, (error) => {
+            if (error) {
+                reject(error);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
+
 export function startWithGui(vmId: string): Promise<void> {
     return new Promise((resolve, reject) => {
         virtualbox.start(vmId, true, (error) => {

@@ -25,6 +25,23 @@ export function activate(context: vscode.ExtensionContext) {
 				vmProvider.refresh();
 			}
 		}),
+		vscode.commands.registerCommand('virtualbox-extension.runHeadlessVM', async (vmTreeItem?: VirtualMachineTreeItem) => {
+			if (vmTreeItem) {
+				const { vm } = vmTreeItem;
+				const running = await isRunning(vm.id);
+
+				if (!running) {
+					try {
+						await startWithoutGui(vm.id);
+						vscode.window.showInformationMessage(`Virtual machine "${vm.name}" has been run successfully`);
+					} catch (ex) {
+						vscode.window.showErrorMessage(`Cannot run virtual machine "${vm.name}": ${ex?.message ?? "Unknown error"}`);
+					}
+				}
+
+				vmProvider.refresh();
+			}
+		}),
 		vscode.commands.registerCommand("virtualbox-extension.saveStateVM", async (vmTreeItem: VirtualMachineTreeItem) => {
 			if (vmTreeItem) {
 				const { vm } = vmTreeItem;
