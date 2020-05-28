@@ -7,7 +7,7 @@
   "repository": {
     "url": "https://github.com/dbinary/virtualbox-vscode-extension"
   },
-  "version": "0.0.6",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.44.0"
   },
