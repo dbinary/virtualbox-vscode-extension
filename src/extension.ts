@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 import { VirtualMachinesProvider } from './vmsProvider';
 import { VirtualMachineTreeItem } from './vmTreeitem';
-import { isRunning, startWithGui, saveState, powerOff, stopAllVms, poweOffAllVms } from './utils';
+import { isRunning, startWithoutGui, startWithGui, saveState, powerOff, stopAllVms, poweOffAllVms } from './utils';
 
 export function activate(context: vscode.ExtensionContext) {
 	const vmProvider = new VirtualMachinesProvider();
