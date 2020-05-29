@@ -19,6 +19,7 @@
     "onCommand:virtualbox-extension.runVM",
     "onCommand:virtualbox-extension.runHeadlessVM",
     "onCommand:virtualbox-extension.saveStateVM",
+    "onCommand:virtualbox-extension.poweroffVm",
     "onCommand:virtualbox-extension.refreshVMs",
     "onCommand:virtualbox-extension.stopAllVms"
   ],
@@ -109,6 +110,7 @@
         },
         {
           "command": "virtualbox-extension.poweroffVm",
+          "group": "inline",
           "when": "viewItem == vmRunning && view == vb-machines"
         }
       ],
@@ -119,6 +121,10 @@
         },
         {
           "command": "virtualbox-extension.runHeadlessVM",
+          "when": "false"
+        },
+        {
+          "command": "virtualbox-extension.poweroffVm",
           "when": "false"
         },
         {
