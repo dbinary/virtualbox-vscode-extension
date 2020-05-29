@@ -7,7 +7,7 @@
   "repository": {
     "url": "https://github.com/dbinary/virtualbox-vscode-extension"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.44.0"
   },
@@ -29,12 +29,12 @@
         "command": "virtualbox-extension.runVM",
         "category": "Virtual Box",
         "title": "Run Virtual Machine",
-        "icon": "$(run)"
+        "icon": "$(vm-running)"
       },
       {
         "command": "virtualbox-extension.runHeadlessVM",
         "category": "Virtual Box",
-        "title": "Run Virtual Machine Headless mode",
+        "title": "Run Virtual Machine Headless",
         "icon": "$(run)"
       },
       {
@@ -52,7 +52,8 @@
       {
         "command": "virtualbox-extension.poweroffVm",
         "category": "Virtual Box",
-        "title": "Power off the machine (state will be lost)"
+        "title": "Power off the machine (state will be lost)",
+        "icon": "$(stop-circle)"
       },
       {
         "command": "virtualbox-extension.stopAllVms",
